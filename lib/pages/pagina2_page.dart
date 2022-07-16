@@ -6,9 +6,32 @@ class Pagina2Page extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return  Scaffold(
+      appBar: AppBar(title: Text('Página 2'),),
       body: Center(
-         child: Text('Pagina2Page'),
+         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            MaterialButton(
+              onPressed: () {
+              },
+              color: Colors.indigo,
+              child: const Text('Establecer usuario', style: TextStyle(color: Colors.white),),
+            ),
+            MaterialButton(
+              onPressed: () {
+              },
+              color: Colors.indigo,
+              child: const Text('Cambiar edad', style: TextStyle(color: Colors.white),),
+            ),
+            MaterialButton(
+              onPressed: () {
+              },
+              color: Colors.indigo,
+              child: const Text('Añaidr profesión', style: TextStyle(color: Colors.white),),
+            )
+          ],
+         ),
       ),
     );
   }
