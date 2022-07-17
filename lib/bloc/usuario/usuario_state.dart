@@ -10,6 +10,5 @@ class UsuarioInitial extends UsuarioState {
 class UsuarioActivo extends UsuarioState {
   final existeUsuario = true;
   Usuario usuario;
-
   UsuarioActivo({required this.usuario});
 }
