@@ -7,8 +7,7 @@ class _UsuarioService {
   Usuario? get usuario => _usuario;
   bool get existeUsuario => (_usuario != null) ? true : false;
 
-  StreamController<Usuario?> usuarioStreamController =
-      StreamController<Usuario?>();
+  StreamController<Usuario?> usuarioStreamController = StreamController<Usuario?>.broadcast();
 
   Stream<Usuario?> get usuarioStream => usuarioStreamController.stream;
 

@@ -9,7 +9,18 @@ class Pagina2Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Página 2'),
+        title: StreamBuilder( 
+          initialData: usuarioService.usuario,
+          stream: usuarioService.usuarioStream,
+          builder: (context, AsyncSnapshot<Usuario?> snapshot) {
+            print('valor snap ${snapshot}');
+            if ((snapshot.hasData)) {
+              return Text('Pagina ${snapshot.data?.nombre}');
+            } else {
+              return const Text('Página 2');
+            }
+          },
+        ),
       ),
       body: Center(
         child: Column(
@@ -45,7 +56,7 @@ class Pagina2Page extends StatelessWidget {
                 'Añaidr profesión',
                 style: TextStyle(color: Colors.white),
               ),
-            )
+            ),
           ],
         ),
       ),
