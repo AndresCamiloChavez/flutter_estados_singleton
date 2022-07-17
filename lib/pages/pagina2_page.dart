@@ -8,6 +8,7 @@ class Pagina2Page extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final usuarioCubit = context.read<UsuarioCubit>();
     return Scaffold(
       appBar: AppBar(
         title: Text('Página 2'),
@@ -40,7 +41,10 @@ class Pagina2Page extends StatelessWidget {
               ),
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<UsuarioCubit>().addProfesion(
+                    'Nueva profesión ${usuarioCubit.cantidadProfesiones() ?? 0}');
+              },
               color: Colors.indigo,
               child: const Text(
                 'Añaidr profesión',

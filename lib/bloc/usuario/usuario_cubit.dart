@@ -18,4 +18,22 @@ class UsuarioCubit extends Cubit<UsuarioState> {
       emit(UsuarioActivo(usuario: newuser));
     }
   }
+
+  void addProfesion(String profesion) {
+    if (state is UsuarioActivo) {
+      final usuario = (state as UsuarioActivo).usuario.copyWith();
+      usuario.profesiones.add(profesion);
+      emit(UsuarioActivo(usuario: usuario));
+    }
+  }
+
+  int? cantidadProfesiones() {
+    if (state is UsuarioActivo) {
+      return (state as UsuarioActivo).usuario.profesiones.length;
+    }
+  }
+
+  void borrarUsuario() {
+    emit(UsuarioInitial());
+  }
 }

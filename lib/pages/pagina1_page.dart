@@ -12,6 +12,13 @@ class Pagina1Page extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Página 1'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                context.read<UsuarioCubit>().borrarUsuario();
+              },
+              icon: Icon(Icons.exit_to_app_sharp))
+        ],
       ),
       body: BlocBuilder<UsuarioCubit, UsuarioState>(
         builder: (_, state) {
@@ -44,27 +51,33 @@ class InformacionUsuario extends StatelessWidget {
       height: double.infinity,
       width: double.infinity,
       padding: const EdgeInsets.all(20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'General',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          Divider(),
-          ListTile(
-            title: Text('Nombre ${usuario.nombre}'),
-          ),
-          ListTile(
-            title: Text('Edad ${usuario.edad}'),
-          ),
-          Text(
-            'Profesiones',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          Divider(),
-          ...usuario.profesiones.map((e) => ListTile(title: Text(e),)).toList()
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'General',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Divider(),
+            ListTile(
+              title: Text('Nombre ${usuario.nombre}'),
+            ),
+            ListTile(
+              title: Text('Edad ${usuario.edad}'),
+            ),
+            Text(
+              'Profesiones',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            Divider(),
+            ...usuario.profesiones
+                .map((e) => ListTile(
+                      title: Text(e),
+                    ))
+                .toList()
+          ],
+        ),
       ),
     );
   }
