@@ -31,7 +31,9 @@ class Pagina2Page extends StatelessWidget {
               ),
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<UsuarioBloc>(context).add(CambiarEdadEvent(22));
+              },
               color: Colors.indigo,
               child: const Text(
                 'Cambiar edad',
@@ -39,7 +41,10 @@ class Pagina2Page extends StatelessWidget {
               ),
             ),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<UsuarioBloc>(context)
+                    .add(AgregarProfesionEvent('profesion'));
+              },
               color: Colors.indigo,
               child: const Text(
                 'Añaidr profesión',
