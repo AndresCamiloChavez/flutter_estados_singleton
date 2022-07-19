@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Pagina2Page extends StatelessWidget {
    
@@ -6,6 +7,7 @@ class Pagina2Page extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    print('Valor arguments ${Get.arguments}');
     return  Scaffold(
       appBar: AppBar(title: Text('Página 2'),),
       body: Center(

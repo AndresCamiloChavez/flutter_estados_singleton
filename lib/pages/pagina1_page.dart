@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:singleton_estado/pages/pagina2_page.dart';
 
 class Pagina1Page extends StatelessWidget {
   const Pagina1Page({Key? key}) : super(key: key);
@@ -11,7 +13,8 @@ class Pagina1Page extends StatelessWidget {
       ),
       body: const InformacionUsuario(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.pushNamed(context, 'pagina2'),
+        // onPressed: () => Get.to(const Pagina2Page(),transition: Transition.zoom),
+        onPressed: () => Get.toNamed('/pagina2', arguments: {'nombre': 'Andres', 'edad': '20'}),
         child: const Icon(Icons.arrow_back_ios_new),
       ),
     );
